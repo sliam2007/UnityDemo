@@ -25,6 +25,13 @@ A small Unity-based technical training simulator demonstrating real-time machine
 - **RESET** — resets the machine after safe conditions are restored
 - **EXIT** — closes the standalone application
 
+### Camera Controls
+
+- Hold **Right Mouse Button** and move the mouse — look around
+- Hold **Right Mouse Button** and use **WASD** — move the camera
+- Hold **Right Mouse Button** and use **Q / E** — move down or up
+- Hold **Shift** while moving — increase movement speed
+
 ## Safety Logic
 
 A reset after a fault is permitted only when:

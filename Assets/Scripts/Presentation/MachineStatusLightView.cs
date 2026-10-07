@@ -9,12 +9,15 @@ namespace UnityDemo.Presentation
         private SimulationController simulationController;
 
         private Renderer statusRenderer;
+        private Material statusMaterial;
         private DeviceState displayedState;
         private bool stateWasDisplayed;
 
         private void Awake()
         {
             statusRenderer = GetComponent<Renderer>();  
+            statusMaterial = statusRenderer.material;
+            statusMaterial.EnableKeyword("_EMISSION");
         }
 
         private void Update()
@@ -36,8 +39,18 @@ namespace UnityDemo.Presentation
             displayedState = currentState;
             stateWasDisplayed = true;
 
-            statusRenderer.material.color =
-                GetColor(currentState);
+            //statusRenderer.material.color =
+            //    GetColor(currentState);
+
+            Color color = GetColor(currentState);
+
+            float emissionIntensity =
+                currentState == DeviceState.Off ? 0f : 2f;
+
+            statusMaterial.color = color;
+            statusMaterial.SetColor(
+                "_EmissionColor",
+                color * emissionIntensity);
         }
 
         private static Color GetColor(DeviceState state)
