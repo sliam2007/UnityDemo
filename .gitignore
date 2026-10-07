@@ -99,7 +99,6 @@ StyleCopReport.xml
 *_p.c
 *_h.h
 *.ilk
-*.meta
 *.obj
 *.idb
 *.iobj
@@ -427,3 +426,28 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Unity-generated directories
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# The root Packages directory contains Unity's dependency manifest and lock file.
+!/[Pp]ackages/
+!/[Pp]ackages/**
+
+# Unity-generated project files
+*.csproj
+*.sln
+*.slnx
+*.unityproj
+*.pidb
+*.booproj
+
+# IDE settings
+.idea/
+.vs/
