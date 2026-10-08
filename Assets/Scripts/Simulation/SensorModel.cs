@@ -7,7 +7,7 @@ namespace UnityDemo.Simulation
         private const float AmbientTemperature = 22f;
         private const float RunningTemperature = 75f;
         private const float RunningPressure = 6.5f;
-        private const float RunningMotorSpeed = 1200f;
+        private const float RunningMotorSpeed = 600f;
 
         public float TemperatureCelsius { get; private set; }
             = AmbientTemperature;
@@ -35,10 +35,12 @@ namespace UnityDemo.Simulation
                 isRunning ? RunningPressure : 0f,
                 1.5f * deltaTime);
 
+            float motorSpeedChangeRate = isRunning ? 600f : 300f;
+
             MotorSpeedRpm = MoveTowards(
                 MotorSpeedRpm,
                 isRunning ? RunningMotorSpeed : 0f,
-                600f * deltaTime);
+                motorSpeedChangeRate * deltaTime);
         }
 
         public void StopMotorImmediately()
