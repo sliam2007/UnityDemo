@@ -12,6 +12,10 @@ A small Unity-based technical training simulator demonstrating real-time machine
 - Safety interlocks for operator controls
 - Live telemetry and operator messages
 - 3D rotor visualization driven by simulated RPM
+- Cooling fan that runs with the machine and coasts down after a normal stop
+- Spatial motor and cooling-fan sounds that follow their respective speeds
+- Enclosed, collidable room with a free-fly camera that slides along surfaces
+- Six glowing ceiling fixtures with soft, oval light patches and one intermittently flickering fixture
 
 ## Controls
 
@@ -20,7 +24,7 @@ A small Unity-based technical training simulator demonstrating real-time machine
 - **STOP** — performs a normal stop
 - **POWER OFF** — switches off a stopped machine
 - **EMERGENCY STOP** — immediately stops the motor
-- **OVERHEAT** — activates the cooling failure scenario
+- **COOLING FAILURE** — activates the cooling failure scenario
 - **RESTORE COOLING** — restores cooling after an overheat fault
 - **RESET** — resets the machine after safe conditions are restored
 - **EXIT** — closes the standalone application
@@ -31,6 +35,8 @@ A small Unity-based technical training simulator demonstrating real-time machine
 - Hold **Right Mouse Button** and use **WASD** — move the camera
 - Hold **Right Mouse Button** and use **Q / E** — move down or up
 - Hold **Shift** while moving — increase movement speed
+
+The camera cannot pass through the room or machine colliders; it slides along surfaces when blocked.
 
 ## Safety Logic
 
@@ -54,6 +60,10 @@ The project separates simulation logic from Unity presentation components:
 - `TelemetryView` — telemetry and status display
 - `MotorRotorView` — visual rotor movement
 - `MachineStatusLightView` — visual machine status indicator
+- `CoolingFanView` — cooling-fan rotation and coast-down
+- `MotorSoundView` and `CoolingFanSoundView` — spatial machine audio
+- `FlyCameraController` — camera movement and collision
+- `FaultyCeilingLightView` and `CeilingLightCookieView` — intermittent flicker and oval ceiling-light masks
 
 ## Requirements
 
